@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ArticleController;
+
 
 
 /*
@@ -24,3 +26,10 @@ Route::controller(PagesController::class)->group(function(){
     Route::get('/contact-us','contact');
     Route::get('/about', 'about');
 });
+
+Route::controller(ArticleController::class)->group(function(){
+    Route::get('/articles', 'index');
+    
+});
+
+
