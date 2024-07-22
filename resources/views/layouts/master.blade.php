@@ -8,13 +8,19 @@
 </head>
 <body>
 <h1>Mon blog Laravel</h1>
-    <p>
-        <a href="/contact-us">Contacez-nous</a>
-    </p>
+    <nav>
+        <ul>
+            <li><a href="/contact-us">Contacez-nous</a></li>
+            <li><a href="/about">A propos</a></li>
+        </ul>
+    </nav>
+    
     
 
 <!--Contenue de tout les pages ici -->
 @yield('content')
+@yield('abouit')
+
 <!--Contenue de tout les pages ici -->
 
 </body>
