@@ -4,10 +4,14 @@
     <article class="card mb-3 mb-5" >
         <img src="{{$article['image']}}" alt="" class="card-img-top">
         <div class="card-body">
+
+            <span class="text-primary badge"> Auteur:{{$article->user->name}} </span>
+            <span class="text-bg-secondary badge">Créé le {{$article->created_at->toDateString()}} </span>
+
             <h2 class="card-title mb-3 mt-3">
-                {{$article['title']}}
+                {{$article->title}}
             </h2>
-            <p class="card-text">{{$article['body']}}</p>
+            <p class="card-text">{{$article->body}}</p>
         </div>
     </article>
 
@@ -30,8 +34,9 @@
            <div class="mt-5">
             @forelse($article->comments as $comment)
                 <div class="mb-3">
-                    <strong class="text-primary">User id: {{$comment->user_id}} </strong>
-                    <small>{{$comment['comment']}}</small>
+                    <span class="text-primary badge">{{$comment->user->name}} </span>
+                    <span class="text-bg-secondary badge"> {{$comment->created_at->diffForHumans()}} </span>
+                    <small>{{$comment->comment}}</small>
                 </div>
             @empty
                 <p>Aucun commentaire trouvé</p>
