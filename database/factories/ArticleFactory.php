@@ -19,7 +19,7 @@ class ArticleFactory extends Factory
         return [
             "title"=>fake()->sentence(10),
             "body"=>fake()->paragraph(50),
-            "image"=>'public/images/active-states.jpg',
+            "image"=>'/images/active-states.jpg',
             "user_id"=>1,
         ];
     
