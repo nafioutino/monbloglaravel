@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreArticleRequest;
+
 
 class ArticleController extends Controller
 {
@@ -25,16 +27,29 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('articles.create');
     }
 
     /**
      * Store a newly created resource in storage.
      * Stock la ressource (l'article) dans la BDD
      */
-    public function store(Request $request)
+    public function store(StoreArticleRequest $request)
     {
-        //
+        // dd($request);
+        // recupère les données déjà validées par la sauvegarde s'il y en a 
+        $validated = $request->validated();
+        
+        //Gerer la sauvegarde de l'image s'il y en a
+        if ($request->hasFile("image")) {
+            $path = $request->file('image')->store('/images');
+            $validated['image'] = $path;
+        }
+        //Envoyer l'article dans la BDD
+        Article::create($validated);
+
+        //retourne sur la  page des articles
+        return redirect('/articles')->with('success', 'Article créé avec succès !');
     }
 
     /**
