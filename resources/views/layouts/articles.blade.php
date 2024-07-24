@@ -9,13 +9,9 @@
 @section('about')
     <h1>Articles</h1>
 
-    @if(session('success'))
-    <div class="alert alert-success">
-        {{session('success')}}
-    </div>
-    @endif
+  
 <p>
-    <a href='/article/create' class="btn btn-primary">Creer un article</a>
+    <a href='/articles/create' class="btn btn-primary">Creer un article</a>
 </p>
 
     @forelse($articles as $article)

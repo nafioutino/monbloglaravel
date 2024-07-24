@@ -45,6 +45,11 @@
     
 
 <main class="container mt-4">
+   @if(session('success'))
+      <div class="alert alert-success">
+          {{session('success')}}
+      </div>
+    @endif
     <!--Contenue de tout les pages ici -->
     @yield('content')
     @yield('about')

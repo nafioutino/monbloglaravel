@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<form method="post" action="/articles" enctype="multipart/form-data">
+<form method="post" action="{{route('articles.update',$article->id)}}" enctype="multipart/form-data">
     @csrf
     @method("patch")
     @if($errors->any())

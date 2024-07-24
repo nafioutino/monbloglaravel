@@ -14,9 +14,15 @@
 
             <h2 class="card-title mb-3 mt-3">
                 {{$article->title}}
-                <a href="/articles/{{$article->id}}/edit" class="btn btn-sm btn-warning ml-3">Editer</a>
-                <a href="/articles/{{$article->id}}/edit" class="btn btn-sm btn-warning ml-3">Supprimer</a>
             </h2>
+
+            <a href="/articles/{{$article->id}}/edit" class="btn mb-3 btn-sm btn-warning ml-3">Editer</a>
+            <form method="post"  action="{{route('articles.destroy', $article->id)}}">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger mb-5" type="submit">Supprimer</button>
+            </form>
+                            
             <p class="card-text">{{$article->body}}</p>
         </div>
     </article>
