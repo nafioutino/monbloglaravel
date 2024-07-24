@@ -15,7 +15,8 @@ class ArticleController extends Controller
      */
     public function index(){  
 
-        $articles = Article::all(); 
+        // $articles = Article::orderByDesc('created_at', 'desc')->get(); 
+        $articles = Article::latest()->paginate(2); 
 
     
         return view('layouts.articles', ['articles'=>$articles]);
@@ -39,10 +40,11 @@ class ArticleController extends Controller
         // dd($request);
         // recupère les données déjà validées par la sauvegarde s'il y en a 
         $validated = $request->validated();
+        $validated['user_id'] = 1;
         
         //Gerer la sauvegarde de l'image s'il y en a
         if ($request->hasFile("image")) {
-            $path = $request->file('image')->store('/images');
+            $path = $request->file('image')->store('images', 'public');
             $validated['image'] = $path;
         }
         //Envoyer l'article dans la BDD

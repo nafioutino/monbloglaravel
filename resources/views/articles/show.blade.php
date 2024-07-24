@@ -2,7 +2,11 @@
 
 @section('content')
     <article class="card mb-3 mb-5" >
-        <img src="{{$article['image']}}" alt="" class="card-img-top">
+
+    @if($article->image)
+        <img src="{{asset('storage/'.$article->image)}}" alt="" class="card-img-top">
+    @endif
+
         <div class="card-body">
 
             <span class="text-primary badge"> Auteur:{{$article->user->name}} </span>
