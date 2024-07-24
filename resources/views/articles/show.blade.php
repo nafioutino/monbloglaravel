@@ -14,6 +14,8 @@
 
             <h2 class="card-title mb-3 mt-3">
                 {{$article->title}}
+                <a href="/articles/{{$article->id}}/edit" class="btn btn-sm btn-warning ml-3">Editer</a>
+                <a href="/articles/{{$article->id}}/edit" class="btn btn-sm btn-warning ml-3">Supprimer</a>
             </h2>
             <p class="card-text">{{$article->body}}</p>
         </div>
