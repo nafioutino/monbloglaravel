@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\SessionController;
 
 
 
@@ -38,5 +40,11 @@ Route::controller(ArticleController::class)->group(function(){
     
 });
 
+//routes d'authentification
+Route::get('/register',[RegisterController::class, 'index'] )->name('register');
+Route::post('/register',[RegisterController::class, 'store'] );
+
+Route::get('/login',[SessionController::class, 'index'] )->name('login');
+Route::post('/login',[SessionController::class, 'login'] );
 
  
