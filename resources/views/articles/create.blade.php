@@ -30,6 +30,7 @@
         @error('title')
             <div class="invalid-feedback">{{$message}}</div>
         @enderror
+        
         <div class="mb-3 form-group mb-3 ">
             <label for="body" >Corp de l'article</label>
             <textarea style="height:200px"  

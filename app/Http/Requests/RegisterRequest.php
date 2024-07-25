@@ -36,6 +36,11 @@ class RegisterRequest extends FormRequest
 
 
     // une fonction qui s'execute après la validation des données
+    // protected function passedValition(){
+    //     $this->merge(["password", bcrypt( $this->password )]);
+    // }
+
+
     // public function after():array{
     //     return [
     //         function(Validator $validator){
