@@ -35,6 +35,17 @@
         <li class="nav-item">
           <a href="/articles" class="nav-link " aria-disabled="true">Articles</a>
         </li>
+
+      @guest
+      <li class="nav-item"><a class="nav-link " href="{{ route('register') }}">Créer un compte</a></li>
+      <li class="nav-item"><a class="nav-link " href="{{ route('login') }}">Login</a></li>
+      @endguest
+
+      @auth
+      <li class="nav-item"><a class="nav-link" href="{{ route('profile') }}">Votre profil</a></li>
+      @endauth
+
+     
       </ul>
     
     </div>

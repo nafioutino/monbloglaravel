@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SessionController;
 
@@ -46,5 +47,8 @@ Route::post('/register',[RegisterController::class, 'store'] );
 
 Route::get('/login',[SessionController::class, 'index'] )->name('login');
 Route::post('/login',[SessionController::class, 'login'] );
+
+Route::get('/profile', [UserController::class, 'index'])->name('profile');
+Route::get('/logout', [SessionController::class, 'logout'])->name('logout');
 
  

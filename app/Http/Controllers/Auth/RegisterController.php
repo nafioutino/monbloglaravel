@@ -32,6 +32,7 @@ class RegisterController extends Controller
         //connecter l'utilisateur
         $user= User::where('email', $validated["email"])->firstOrfail();
         Auth::login($user);
+        session()->flash('success_message', 'Votre compte a été crée');
 
         //rediriger sur la page des articles
         return redirect()->route('articles.index');

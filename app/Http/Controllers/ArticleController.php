@@ -42,7 +42,8 @@ class ArticleController extends Controller
         // dd($request);
         // recupère les données déjà validées par la sauvegarde s'il y en a 
         $validated = $request->validated();
-        $validated['user_id'] = 1;
+        $validated['user_id'] = Auth()->id();
+       
         
         //Gerer la sauvegarde de l'image s'il y en a
         if ($request->hasFile("image")) {

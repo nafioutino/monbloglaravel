@@ -6,7 +6,7 @@
 @endsection
 
 
-@section('about')
+@section('content')
     <h1>Articles</h1>
 
   
@@ -17,6 +17,7 @@
     @forelse($articles as $article)
         @include('articles.partials.index')
    {{-- Liens de pagination --}}
+   <p>{{$article->user->name}}</p>
 
    @empty
    @include('articles.partials.no-articles')
